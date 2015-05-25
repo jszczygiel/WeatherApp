@@ -20,14 +20,19 @@ public class WeatherInteractorImpl extends BaseInteractor implements WeatherInte
     @Inject
     WeatherAPIService adapter;
 
-    public WeatherInteractorImpl(){
+    Observable<WeatherViewModel> observable;
+
+    public WeatherInteractorImpl() {
         component().inject(this);
     }
 
     @Override
     public Observable<WeatherViewModel> loadDateWeather(DateTime date, String query) {
-        return adapter.loadData(query).subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread()).map(item ->
-                        new WeatherViewModel(item));
+        if (observable == null) {
+            observable = adapter.loadData(query).subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread()).map(item ->
+                            new WeatherViewModel(item)).cache();
+        }
+        return observable;
     }
 }

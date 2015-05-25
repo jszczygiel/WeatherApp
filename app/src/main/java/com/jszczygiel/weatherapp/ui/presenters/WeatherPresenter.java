@@ -7,7 +7,7 @@ import org.joda.time.DateTime;
 /**
  * Created by jakubszczygiel on 23/05/15.
  */
-public interface WeatherPresenter extends BasePresenterInterface {
+public interface WeatherPresenter {
     void loadDateWeather(DateTime date, String query);
 
     void setFragment(WeatherFragment instance);

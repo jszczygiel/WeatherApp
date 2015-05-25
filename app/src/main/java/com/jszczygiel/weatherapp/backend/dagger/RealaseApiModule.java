@@ -31,6 +31,10 @@ public class RealaseApiModule {
     @Provides
     @Singleton
     RequestInterceptor provideRequestInterceptor() {
-        return request -> request.addHeader("x-api-key", ApiModule.PRODUCTION_API_KEY);
+        return request -> {
+            request.addHeader("x-api-key", ApiModule.PRODUCTION_API_KEY);
+            int maxAge = 60; // read from cache for 1 minute
+            request.addHeader("Cache-Control", "public, max-age=" + maxAge);
+        };
     }
 }

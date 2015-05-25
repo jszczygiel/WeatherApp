@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
  */
 public class WeatherResponse {
     @SerializedName("coord")
-    CoordResponse coord;
+    public CoordResponse coord;
     @SerializedName("main")
-    ConditionResponse condition;
+    public ConditionResponse condition;
 }

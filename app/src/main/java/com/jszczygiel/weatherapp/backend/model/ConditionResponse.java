@@ -6,11 +6,11 @@ import com.google.gson.annotations.SerializedName;
  * Created by jakubszczygiel on 24/05/15.
  */
 public class ConditionResponse {
-    float temp;
-    float pressure;
-    int humidity;
+    public float temp;
+    public float pressure;
+    public int humidity;
     @SerializedName("temp_min")
-    float tempMin;
+    public float tempMin;
     @SerializedName("temp_max")
-    float tempMax;
+    public float tempMax;
 }

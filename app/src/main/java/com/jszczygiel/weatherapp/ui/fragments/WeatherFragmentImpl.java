@@ -1,6 +1,7 @@
 package com.jszczygiel.weatherapp.ui.fragments;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.jszczygiel.weatherapp.R;
 import com.jszczygiel.weatherapp.ui.model.WeatherViewModel;
@@ -9,7 +10,7 @@ import com.jszczygiel.weatherapp.ui.presenters.WeatherPresenterImpl;
 
 import org.joda.time.DateTime;
 
-import javax.inject.Inject;
+import butterknife.InjectView;
 
 /**
  * Created by jakubszczygiel on 23/05/15.
@@ -17,20 +18,26 @@ import javax.inject.Inject;
 public class WeatherFragmentImpl extends BaseFragment implements WeatherFragment {
 
     static WeatherPresenter presenter;
+    @InjectView(R.id.detailsTemp)
+    TextView detailsTemp;
+
+    @Override
+    int getLayoutId() {
+        return R.layout.fragment_weather_details;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (presenter == null)
             presenter = new WeatherPresenterImpl();
-        presenter.initilizePresenter();
         presenter.setFragment(this);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        presenter.loadDateWeather(DateTime.now(),"London");
+        presenter.loadDateWeather(DateTime.now(), "London");
     }
 
     @Override
@@ -40,10 +47,7 @@ public class WeatherFragmentImpl extends BaseFragment implements WeatherFragment
         if (getActivity().isFinishing())
             presenter = null;
     }
-    @Override
-    int getLayoutId() {
-        return R.layout.fragment_weather;
-    }
+
 
     @Override
     public void onError() {
@@ -52,6 +56,6 @@ public class WeatherFragmentImpl extends BaseFragment implements WeatherFragment
 
     @Override
     public void onData(WeatherViewModel item) {
-
+        detailsTemp.setText(item.getTemp());
     }
 }

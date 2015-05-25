@@ -17,5 +17,6 @@ public abstract class BasePresenter {
         }
         return component;
     }
+    abstract void destroyPresenter();
 
 }

@@ -35,10 +35,6 @@ public class WeatherPresenterImpl extends BasePresenter implements WeatherPresen
     }
 
     @Override
-    public void initilizePresenter() {
-    }
-
-    @Override
     public void destroyPresenter() {
         if(!subcription.isUnsubscribed()){
             subcription.unsubscribe();
