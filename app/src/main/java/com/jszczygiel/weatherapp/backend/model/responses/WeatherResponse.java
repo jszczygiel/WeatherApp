@@ -1,4 +1,4 @@
-package com.jszczygiel.weatherapp.backend.model;
+package com.jszczygiel.weatherapp.backend.model.responses;
 
 import com.google.gson.annotations.SerializedName;
 

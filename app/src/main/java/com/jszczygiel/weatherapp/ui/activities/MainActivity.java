@@ -4,8 +4,7 @@ import android.os.Bundle;
 import android.widget.FrameLayout;
 
 import com.jszczygiel.weatherapp.R;
-import com.jszczygiel.weatherapp.ui.fragments.WeatherFragment;
-import com.jszczygiel.weatherapp.ui.fragments.WeatherFragmentImpl;
+import com.jszczygiel.weatherapp.ui.fragments.WeatherDetailsFragmentImpl;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -31,10 +30,10 @@ public class MainActivity extends BaseActivity {
         ButterKnife.inject(this);
 
         if (savedInstanceState == null) {
-            WeatherFragmentImpl test = new WeatherFragmentImpl();
+            WeatherDetailsFragmentImpl test = new WeatherDetailsFragmentImpl();
             getSupportFragmentManager().beginTransaction().replace(masterContainer.getId(), test, MASTER_FRAGMENT).commit();
         } else {
-            WeatherFragmentImpl test = (WeatherFragmentImpl) getSupportFragmentManager().findFragmentByTag(MASTER_FRAGMENT);
+            WeatherDetailsFragmentImpl test = (WeatherDetailsFragmentImpl) getSupportFragmentManager().findFragmentByTag(MASTER_FRAGMENT);
         }
     }
 }

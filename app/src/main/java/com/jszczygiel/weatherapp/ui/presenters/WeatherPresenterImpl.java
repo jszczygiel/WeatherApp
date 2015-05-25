@@ -1,7 +1,6 @@
 package com.jszczygiel.weatherapp.ui.presenters;
 
-import com.jszczygiel.weatherapp.backend.interactors.WeatherInteractorImpl;
-import com.jszczygiel.weatherapp.ui.fragments.WeatherFragment;
+import com.jszczygiel.weatherapp.ui.fragments.WeatherDetailsFragment;
 import com.jszczygiel.weatherapp.backend.interactors.WeatherInteractor;
 
 import org.joda.time.DateTime;
@@ -14,7 +13,7 @@ import rx.Subscription;
  * Created by jakubszczygiel on 23/05/15.
  */
 public class WeatherPresenterImpl extends BasePresenter implements WeatherPresenter {
-    private WeatherFragment fragment;
+    private WeatherDetailsFragment fragment;
 
     @Inject
     public WeatherInteractor interactor;
@@ -26,17 +25,18 @@ public class WeatherPresenterImpl extends BasePresenter implements WeatherPresen
 
     @Override
     public void loadDateWeather(DateTime date, String query) {
-        subcription=interactor.loadDateWeather(date, query).subscribe(item -> fragment.onData(item));
+        subcription=interactor.loadDateWeather(date, query).subscribe(item -> fragment.onData(item),
+                item -> fragment.onError(item));
     }
 
     @Override
-    public void setFragment(WeatherFragment instance) {
+    public void setFragment(WeatherDetailsFragment instance) {
         this.fragment=instance;
     }
 
     @Override
     public void destroyPresenter() {
-        if(!subcription.isUnsubscribed()){
+        if(subcription!=null&&!subcription.isUnsubscribed()){
             subcription.unsubscribe();
         }
     }

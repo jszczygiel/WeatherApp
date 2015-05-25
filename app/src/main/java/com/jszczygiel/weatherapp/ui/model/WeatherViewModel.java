@@ -1,6 +1,6 @@
 package com.jszczygiel.weatherapp.ui.model;
 
-import com.jszczygiel.weatherapp.backend.model.WeatherResponse;
+import com.jszczygiel.weatherapp.backend.model.responses.WeatherResponse;
 
 /**
  * Created by jakubszczygiel on 23/05/15.

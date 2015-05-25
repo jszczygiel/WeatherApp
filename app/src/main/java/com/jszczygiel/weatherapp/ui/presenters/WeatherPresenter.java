@@ -1,6 +1,6 @@
 package com.jszczygiel.weatherapp.ui.presenters;
 
-import com.jszczygiel.weatherapp.ui.fragments.WeatherFragment;
+import com.jszczygiel.weatherapp.ui.fragments.WeatherDetailsFragment;
 
 import org.joda.time.DateTime;
 
@@ -10,6 +10,6 @@ import org.joda.time.DateTime;
 public interface WeatherPresenter {
     void loadDateWeather(DateTime date, String query);
 
-    void setFragment(WeatherFragment instance);
+    void setFragment(WeatherDetailsFragment instance);
 
 }

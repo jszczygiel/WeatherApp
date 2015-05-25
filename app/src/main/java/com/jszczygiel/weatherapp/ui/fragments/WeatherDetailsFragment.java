@@ -5,7 +5,7 @@ import com.jszczygiel.weatherapp.ui.model.WeatherViewModel;
 /**
  * Created by jakubszczygiel on 23/05/15.
  */
-public interface WeatherFragment {
-    void onError();
+public interface WeatherDetailsFragment {
+    void onError(Throwable item);
     void onData(WeatherViewModel item);
 }

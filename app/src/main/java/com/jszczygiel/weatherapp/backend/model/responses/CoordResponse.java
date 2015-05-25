@@ -1,4 +1,4 @@
-package com.jszczygiel.weatherapp.backend.model;
+package com.jszczygiel.weatherapp.backend.model.responses;
 
 /**
  * Created by jakubszczygiel on 24/05/15.

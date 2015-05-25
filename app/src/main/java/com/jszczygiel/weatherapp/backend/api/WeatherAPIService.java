@@ -1,6 +1,6 @@
 package com.jszczygiel.weatherapp.backend.api;
 
-import com.jszczygiel.weatherapp.backend.model.WeatherResponse;
+import com.jszczygiel.weatherapp.backend.model.responses.WeatherResponse;
 
 import retrofit.http.GET;
 import retrofit.http.Query;

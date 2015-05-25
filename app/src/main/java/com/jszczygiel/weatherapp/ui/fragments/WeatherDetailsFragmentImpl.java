@@ -15,7 +15,7 @@ import butterknife.InjectView;
 /**
  * Created by jakubszczygiel on 23/05/15.
  */
-public class WeatherFragmentImpl extends BaseFragment implements WeatherFragment {
+public class WeatherDetailsFragmentImpl extends BaseFragment implements WeatherDetailsFragment {
 
     static WeatherPresenter presenter;
     @InjectView(R.id.detailsTemp)
@@ -50,7 +50,7 @@ public class WeatherFragmentImpl extends BaseFragment implements WeatherFragment
 
 
     @Override
-    public void onError() {
+    public void onError(Throwable item) {
 
     }
 
